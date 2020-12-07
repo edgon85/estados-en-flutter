@@ -7,9 +7,22 @@ class _UsuarioService {
 
   bool get existeUsuario => (this._usuario != null) ? true : false;
 
+  /* ============================================ */
+  /* crea o carga un usuario */
+  /* ============================================ */
   void cargarUsuario(Usuario user) {
     this._usuario = user;
   }
+  /* ============================================ */
+
+  /* ============================================ */
+  /* crea o cambia edad */
+  /* ============================================ */
+  void cambiarEdad(int edad) {
+    this._usuario.edad = edad;
+  }
+  /* ============================================ */
+
 }
 
 final usuarioService = new _UsuarioService();

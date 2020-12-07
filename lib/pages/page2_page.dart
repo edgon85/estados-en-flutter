@@ -1,3 +1,5 @@
+import 'package:estados/models/usuario.dart';
+import 'package:estados/serivices/usuario_services.dart';
 import 'package:flutter/material.dart';
 
 class Pagina2Page extends StatelessWidget {
@@ -19,7 +21,10 @@ class Pagina2Page extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 color: Colors.blue,
-                onPressed: () {}),
+                onPressed: () {
+                  final nuevoUsaurio = new Usuario(nombre: 'Edwin', edad: 35);
+                  usuarioService.cargarUsuario(nuevoUsaurio);
+                }),
             /* ============================================ */
             MaterialButton(
                 child: Text(
@@ -27,7 +32,9 @@ class Pagina2Page extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 color: Colors.blue,
-                onPressed: () {}),
+                onPressed: () {
+                  usuarioService.cambiarEdad(24);
+                }),
             /* ============================================ */
             MaterialButton(
                 child: Text(
