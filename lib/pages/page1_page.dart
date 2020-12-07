@@ -1,3 +1,4 @@
+import 'package:estados/serivices/usuario_services.dart';
 import 'package:flutter/material.dart';
 
 class Pagina1Page extends StatelessWidget {
@@ -9,7 +10,15 @@ class Pagina1Page extends StatelessWidget {
       appBar: AppBar(
         title: Text('Pagina 1'),
       ),
-      body: InformacionUsuario(),
+
+      /* ============================================ */
+      body: usuarioService.existeUsuario
+          ? InformacionUsuario()
+          : Center(
+              child: Text('No hay información usuario'),
+            ),
+
+      /* ============================================ */
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.accessibility_new),
         onPressed: () => Navigator.pushNamed(context, 'pagina2'),
