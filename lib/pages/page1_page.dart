@@ -13,13 +13,18 @@ class Pagina1Page extends StatelessWidget {
       ),
 
       /* ============================================ */
-      body: usuarioService.existeUsuario
-          ? InformacionUsuario(
-              usuario: usuarioService.usuario,
-            )
-          : Center(
-              child: Text('No hay información usuario'),
-            ),
+      body: StreamBuilder(
+        stream: usuarioService.usuarioStream,
+        builder: (BuildContext context, AsyncSnapshot<Usuario> snapshot) {
+          return snapshot.hasData
+              ? InformacionUsuario(
+                  usuario: usuarioService.usuario,
+                )
+              : Center(
+                  child: Text('No hay información usuario'),
+                );
+        },
+      ),
 
       /* ============================================ */
       floatingActionButton: FloatingActionButton(
