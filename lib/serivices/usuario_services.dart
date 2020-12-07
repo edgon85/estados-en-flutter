@@ -6,7 +6,7 @@ class _UsuarioService {
   Usuario _usuario;
 
   StreamController<Usuario> _usuarioStreamController =
-      new StreamController<Usuario>();
+      new StreamController<Usuario>.broadcast();
 
   Usuario get usuario => this._usuario;
 
@@ -32,6 +32,9 @@ class _UsuarioService {
   }
   /* ============================================ */
 
+  dispose() {
+    _usuarioStreamController?.close();
+  }
 }
 
 final usuarioService = new _UsuarioService();
