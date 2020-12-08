@@ -1,15 +1,23 @@
+import 'package:estados/services/usuario-service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Pagina1Page extends StatelessWidget {
   const Pagina1Page({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final usuarioService = Provider.of<UsuarioService>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Pagina 1'),
       ),
-      body: InformacionUsuario(),
+      body: usuarioService.existeUsuario
+          ? InformacionUsuario()
+          : Center(
+              child: Text('No hay usuario seleccionado'),
+            ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.accessibility_new),
         onPressed: () => Navigator.pushNamed(context, 'pagina2'),
