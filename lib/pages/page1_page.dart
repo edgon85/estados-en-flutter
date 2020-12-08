@@ -1,3 +1,4 @@
+import 'package:estados/models/usuario.dart';
 import 'package:estados/services/usuario-service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,9 @@ class Pagina1Page extends StatelessWidget {
         title: Text('Pagina 1'),
       ),
       body: usuarioService.existeUsuario
-          ? InformacionUsuario()
+          ? InformacionUsuario(
+              usuario: usuarioService.usuario,
+            )
           : Center(
               child: Text('No hay usuario seleccionado'),
             ),
@@ -30,6 +33,10 @@ class Pagina1Page extends StatelessWidget {
 /* Body */
 /* ============================================ */
 class InformacionUsuario extends StatelessWidget {
+  final Usuario usuario;
+
+  InformacionUsuario({@required this.usuario});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,11 +54,11 @@ class InformacionUsuario extends StatelessWidget {
           Divider(),
           /* ============================================ */
           ListTile(
-            title: Text('Nombre:'),
+            title: Text('Nombre: ${usuario.nombre}'),
           ),
           /* ============================================ */
           ListTile(
-            title: Text('Edad:'),
+            title: Text('Edad: ${usuario.edad}'),
           ),
           /* ============================================ */
           Text(
