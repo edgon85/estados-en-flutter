@@ -35,8 +35,24 @@ class UsuarioService with ChangeNotifier {
   }
   /* ========================== */
 
+  /* ========================== */
+  /* Remover usuario o logout */
+  /* ========================== */
   void removerUsuario() {
     this.usuario = null;
     notifyListeners();
   }
+  /* ========================== */
+
+  /* ========================== */
+  /* agregar una profesion */
+  /* ========================== */
+  void agregarProfesion() {
+    this
+        .usuario
+        .profesiones
+        .add('Profesion ${this._usuario.profesiones.length + 1}');
+    notifyListeners();
+  }
+  /* ========================== */
 }

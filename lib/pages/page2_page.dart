@@ -27,7 +27,14 @@ class Pagina2Page extends StatelessWidget {
                 ),
                 color: Colors.blue,
                 onPressed: () {
-                  final newUser = new Usuario(nombre: 'Edwin', edad: 35);
+                  final newUser = new Usuario(
+                      nombre: 'Edwin',
+                      edad: 35,
+                      profesiones: [
+                        'Flutter Developer',
+                        'Andtorid Developer',
+                        'web Developer'
+                      ]);
                   usuarioService.usuario = newUser;
                 }),
             /* ============================================ */
@@ -46,7 +53,7 @@ class Pagina2Page extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 color: Colors.blue,
-                onPressed: () {})
+                onPressed: () => usuarioService.agregarProfesion())
           ],
         ),
       ),
