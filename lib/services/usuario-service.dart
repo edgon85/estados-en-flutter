@@ -26,4 +26,17 @@ class UsuarioService with ChangeNotifier {
   }
   /* ====================== */
 
+  /* ========================== */
+  /* propiedad para cambiar edad*/
+  /* ========================== */
+  void cambiarEdad(int edad) {
+    this._usuario.edad = edad;
+    notifyListeners();
+  }
+  /* ========================== */
+
+  void removerUsuario() {
+    this.usuario = null;
+    notifyListeners();
+  }
 }
